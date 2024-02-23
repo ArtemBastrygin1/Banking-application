@@ -8,13 +8,7 @@ limit = 0
 
 def creating_user():
     name = input("Введите ФИО: ")
-    while True:
-        try:
-            year_birth = int(input("Введите год рождения: "))
-            break
-        except ValueError:
-            print("Вы ввели текст, а нужно число!")
-
+    year_birth = int(input("Введите год рождения: "))
     if year_birth >= year:
         print("Введен год больше чем текущий!")
         return
@@ -37,12 +31,7 @@ def creating_user():
 
 
 def put_money():
-    while True:
-        try:
-            x = int(input("Введите сумму пополнения: "))
-            break
-        except ValueError:
-            print("Вы ввели текст, а нужно число!")
+    x = int(input("Введите сумму пополнения: "))
     if x <= 0:
         print("Введена некорректная сумма!")
         return
@@ -57,12 +46,7 @@ def withdraw_mone():
     if password1 == password:
         global check
         print("Ваш баланс:", check, "руб.")
-        while True:
-            try:
-                cash_min = int(input("Введите сумму для снятия: "))
-                break
-            except ValueError:
-                print("Вы ввели текст, а нужно число!")
+        cash_min = int(input("Введите сумму для снятия: "))
         if cash_min > check:
             print("Введенная сумма больше чем баланс!")
             return
@@ -93,12 +77,7 @@ def display_balance():
 def setting_replenishment():
     while True:
         tr_dict = {}
-        while True:
-            try:
-                replenishment_amount = int(input("Введите сумму будущего пополнения (нажмите 0 для выхода): "))
-                break
-            except ValueError:
-                print("Вы ввели текст, а нужно число!")
+        replenishment_amount = int(input("Введите сумму будущего пополнения (нажмите 0 для выхода): "))
         if replenishment_amount == 0:
             break
         comment = str(input("Назначение пополнения: "))
@@ -113,12 +92,8 @@ def setting_replenishment():
 
 def adding_limit():
     global limit
-    while True:
-        try:
-            limit = int(input("Введите максимальную сумму, которая может быть на счету: "))
-            break
-        except ValueError:
-            print("Вы ввели текст, а нужно ввести число!")
+    limit = int(input("Введите максимальную сумму, которая может быть на счету: "))
+    print("Вы ввели текст, а нужно ввести число!")
     if limit <= 0 or limit <= check:
         print("Введено некорректное значение!")
     print("Максимальная сумма, которая может быть на счету:", str(limit), "руб.")
@@ -240,12 +215,7 @@ def transactions_statistics():
 
 while True:
     print("Хотите восстановить данные?\nНажмите (1) - если да\nНажмите (2) - если нет")
-    while True:
-        try:
-            x = int(input("Введите значение: "))
-            break
-        except ValueError:
-            print(f'Вы ввели текст, а нужно ввести либо "1", либо "2"')
+    x = int(input("Введите значение: "))
     if x <= 0 or x > 2:
         print("Введено некорректное значение!")
 
